@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: Frank's Blog
 subtitle:
 description:
-author: John Doe
-language:
+author: Frank Bian
+language:en-us
 timezone:
 
 # URL
@@ -67,4 +67,5 @@ theme: landscape
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: github
+  repo: git@github.com:FrankBian/FrankBian.github.io.git
