@@ -7,8 +7,8 @@ title: Frank's Blog
 subtitle:
 description:
 author: Frank Bian
-language:en-us
-timezone:Asia/Shanghai
+language: en-us
+timezone: "Asia/Shanghai"
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -67,5 +67,5 @@ theme: landscape
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
-  type: github
-  repo: git@github.com:FrankBian/FrankBian.github.io.git
+  type: git
+  repo: git@private:FrankBian/blog-hexo.git
