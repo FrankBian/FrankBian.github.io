@@ -69,3 +69,4 @@ theme: landscape
 deploy:
   type: git
   repo: git@private:FrankBian/blog-hexo.git
+  branch: gh-pages
