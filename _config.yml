@@ -1,23 +1,23 @@
-# Hexo Configuration
+## Hexo Configuration
 ## Docs: http://hexo.io/docs/configuration.html
 ## Source: https://github.com/hexojs/hexo/
 
-# Site
-title: Frank's Blog
-subtitle:
-description:
+## Site
+title: Bian's Blog
+subtitle: Bian is on the way
+description: "Bian's tech Blog"
 author: Frank Bian
-language: en-us
+language: en
 timezone: "Asia/Shanghai"
 
-# URL
+## URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://frankbian.github.io/Blog/
-root: /Blog
+url: "http://FrankBian.github.io"
+root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 
-# Directory
+## Directory
 source_dir: source
 public_dir: public
 tag_dir: tags
@@ -27,7 +27,7 @@ code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
 
-# Writing
+## Writing
 new_post_name: :title.md # File name of new posts
 default_layout: post
 titlecase: false # Transform title into titlecase
@@ -40,6 +40,7 @@ future: true
 highlight:
   enable: true
   line_number: true
+  auto_detect: true
   tab_replace:
 
 # Category & Tag
@@ -62,11 +63,11 @@ pagination_dir: page
 # Extensions
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
-theme: freemind
+theme: landscape
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@private:FrankBian/Blog.git
+  repo: git@private:FrankBian/FrankBian.github.io.git
   branch: gh-pages
