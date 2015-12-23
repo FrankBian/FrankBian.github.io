@@ -70,4 +70,4 @@ theme: landscape
 deploy:
   type: git
   repo: git@private:FrankBian/FrankBian.github.io.git
-  branch: gh-pages
+  branch: master
