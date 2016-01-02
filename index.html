@@ -65,42 +65,456 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Code Smell" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/12/23/hello-world/" class="article-date">
-  <time datetime="2015-12-23T13:27:51.000Z" itemprop="datePublished">2015-12-23</time>
+    <a href="/2016/01/02/Code Smell/" class="article-date">
+  <time datetime="2016-01-02T14:28:45.000Z" itemprop="datePublished">2016-01-02</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/23/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start"><a href="#Quick_Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create_a_new_post"><a href="#Create_a_new_post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server"><a href="#Run_server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files"><a href="#Generate_static_files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites"><a href="#Deploy_to_remote_sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <h1 id="Code_Smell"><a href="#Code_Smell" class="headerlink" title="Code Smell"></a>Code Smell</h1><p> By Kent Beck and Martin Fowler: <a href="https://sourcemaking.com/refactoring/bad-smells-in-code" target="_blank" rel="external">https://sourcemaking.com/refactoring/bad-smells-in-code</a></p>
+<blockquote>
+<p>If it stinks, change it.<br>-Grandma Beck, discussing child-rearing philosophy (出自Beck奶奶，讨论抚养小孩的哲学)</p>
+</blockquote>
+<p>The kinds of Code Smell :</p>
+<ul>
+<li>Duplicated Code - 重复代码</li>
+<li>Long Method - 过长的函数</li>
+<li>Large Class - 过大的类</li>
+<li>Long Parameter List - 过长的参数列表</li>
+<li>Divergent Change - 发散式变化</li>
+<li>Shotgun Surgery - 霰弹式修改</li>
+<li>Feature Envy - 依恋情结</li>
+<li>Data Clumps - 数据泥团</li>
+<li>Primitive Obsession - 基本类型偏执</li>
+<li>Switch Statements - Switch 惊悚现身</li>
+<li>Parallel Inheritance Hierarchy - 平行继承体系</li>
+<li>Lazy Class - 冗赘类</li>
+<li>Speculative Generality - 夸夸其谈未来性</li>
+<li>Temporary Field - 令人迷惑的临时字段</li>
+<li>Message Chains - 过度耦合的消息链</li>
+<li>Middle Man - 中间人</li>
+<li>Inappropriate Intimacy - 狎昵关系(过度亲密)</li>
+<li>Alternative Classes with different interfaces - 异曲同工的类</li>
+<li>Incomplete Library Class - 不完美的库类</li>
+<li>Data Class - 幼稚的数据类</li>
+<li>Refused Bequest - 被拒绝的遗赠</li>
+<li>Comments - 过多的注释</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://FrankBian.github.io/2015/12/23/hello-world/" data-id="ciiiv1kxy0000lmuyobt4h0zh" class="article-share-link">Share</a>
+      <a data-url="http://FrankBian.github.io/2016/01/02/Code Smell/" data-id="ciix7gptg0000kjuycu9yxwgu" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-重新组织函数" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/01/02/重新组织函数/" class="article-date">
+  <time datetime="2016-01-02T14:28:28.000Z" itemprop="datePublished">2016-01-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>重新组织函数是非常常用的一种方法，使之更恰当的包装代码<br><strong><em>小型函数的优美动人</em></strong></p>
+<h1 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h1><h4 id="1-Extract_Method_28_u63D0_u70BC_u51FD_u6570_29"><a href="#1-Extract_Method_28_u63D0_u70BC_u51FD_u6570_29" class="headerlink" title="1.Extract Method(提炼函数)"></a>1.Extract Method(提炼函数)</h4><ul>
+<li>尽量使函数体保持在30行以内，过长的函数需要重构</li>
+<li>如果函数都是小粒度的，那么其复用性会更好</li>
+<li>用函数名解释函数的用途</li>
+</ul>
+<h4 id="2-Inline_Method_28_u5185_u8054_u51FD_u6570_29"><a href="#2-Inline_Method_28_u5185_u8054_u51FD_u6570_29" class="headerlink" title="2.Inline Method(内联函数)"></a>2.Inline Method(内联函数)</h4><ul>
+<li>非必要的函数增加了函数调用的间接性，将其函数体内联到其调用处</li>
+<li>要对一堆存在调用关系的函数重构之前，先将被调函数内联到其调用处，然后对整个大函数进行重构  </li>
+</ul>
+<h4 id="3-Inline_Temp_28_u5185_u8054_u4E34_u65F6_u53D8_u91CF_29"><a href="#3-Inline_Temp_28_u5185_u8054_u4E34_u65F6_u53D8_u91CF_29" class="headerlink" title="3.Inline Temp(内联临时变量)"></a>3.Inline Temp(内联临时变量)</h4><ul>
+<li>如果这个临时变量妨碍了其他的重构手法，就将它内联</li>
+<li>一般可以通过声明该变量为final来检测该变量是否只被赋值一次</li>
+<li>找到临时变量的引用点，将它们替换成 为临时变量赋值 的表达式</li>
+<li>修改完之后，编译并测试</li>
+</ul>
+<h4 id="4-Replace_Temp_with_Query_28_u4EE5_u67E5_u8BE2_u53D6_u4EE3_u4E34_u65F6_u53D8_u91CF_29"><a href="#4-Replace_Temp_with_Query_28_u4EE5_u67E5_u8BE2_u53D6_u4EE3_u4E34_u65F6_u53D8_u91CF_29" class="headerlink" title="4.Replace Temp with Query(以查询取代临时变量)"></a>4.Replace Temp with Query(以查询取代临时变量)</h4><ul>
+<li>你的程序以一个临时变量保存某一表达式的运算结果， 则可以将这个表达式提炼到一个独立函数中，将这个临时变量的所有引用点替换成对新函数的调用。此后，新函数就可以其它函数使用</li>
+<li>因为临时变量只是暂时的，如果将临时变量替换成一个查询，那么同一个类中的所有函数都可以获得这份信息。这样做可以帮助你为这个类编写更加清晰的代码</li>
+<li>先将函数声明为private。日后如果发现有更多类需要使用它，那是放松对它的保护也很容易</li>
+<li>确保提炼出来的函数无任何副作用，也就是说该函数并不修改任务对象内容</li>
+</ul>
+<h4 id="5-Introduce_Explaining_Variable_28_u5F15_u5165_u89E3_u91CA_u6027_u53D8_u91CF_29"><a href="#5-Introduce_Explaining_Variable_28_u5F15_u5165_u89E3_u91CA_u6027_u53D8_u91CF_29" class="headerlink" title="5.Introduce Explaining Variable(引入解释性变量)"></a>5.Introduce Explaining Variable(引入解释性变量)</h4><ul>
+<li>你有一个复杂的表达式。将该复杂表达式（或其中一部分）的结果放进一个临时变量，以此变量名称来解释表达式用途</li>
+<li>在条件逻辑中，Introduce Explaining Variable特别有价值： 可以用这项重构将每个条件子句提炼出来，以一个良好命名的临时变量来解释对应条件子句的意义。</li>
+<li>在较长的算法中， 可以运用临时变量来解释每一步运算的意义</li>
+<li>更多情况下，尽量使用Extrat Method来解释一段代码的意义，临时变量只在它所处的函数中才有意义，局限性比较大</li>
+<li>通常情况下，Extract Method的工作量并不比Introduce Explaining Variable来得大</li>
+</ul>
+<h4 id="6-Split_Temporary_Variable_28_u5206_u89E3_u4E34_u65F6_u53D8_u91CF_29"><a href="#6-Split_Temporary_Variable_28_u5206_u89E3_u4E34_u65F6_u53D8_u91CF_29" class="headerlink" title="6.Split Temporary Variable(分解临时变量)"></a>6.Split Temporary Variable(分解临时变量)</h4><ul>
+<li>某个临时变量被复制多次，既不是循环变量，也不是用于手机计算结果，则可以针对每次赋值，创造一个独立、对应的临时变量</li>
+<li>如果临时变量承担多个责任，它就应该被替换（分解）为多个临时变量，每个变量只承担一个责任。</li>
+<li>同一个临时变量承担两件事情，会令代码阅读者糊涂</li>
+<li>使用final修饰符， 对后面的每一次赋值进行修改，每次修改后都应该编译测试</li>
+</ul>
+<h4 id="7-Remove_Assignments_to_Parameters_28_u79FB_u9664_u5BF9_u53C2_u6570_u7684_u8D4B_u503C_29"><a href="#7-Remove_Assignments_to_Parameters_28_u79FB_u9664_u5BF9_u53C2_u6570_u7684_u8D4B_u503C_29" class="headerlink" title="7.Remove Assignments to Parameters(移除对参数的赋值)"></a>7.Remove Assignments to Parameters(移除对参数的赋值)</h4><ul>
+<li>如果代码中有对参数进行的赋值，以一个临时变量取代该参数的位置</li>
+<li>在函数体内，只用参数表示“被传递进来的东西”，会使代码清晰得多，因为这种用法在所有语言中都表现出相同的语义</li>
+<li>可以在较长的函数中，使用final来修饰参数，可以帮助你检查参数是否被修改</li>
+</ul>
+<h4 id="8-Replace_Method_with_Method_Obejct_28_u4EE5_u51FD_u6570_u5BF9_u8C61_u53D6_u4EE3_u51FD_u6570_29"><a href="#8-Replace_Method_with_Method_Obejct_28_u4EE5_u51FD_u6570_u5BF9_u8C61_u53D6_u4EE3_u51FD_u6570_29" class="headerlink" title="8.Replace Method with Method Obejct(以函数对象取代函数)"></a>8.Replace Method with Method Obejct(以函数对象取代函数)</h4><ul>
+<li>如果存在一个大型函数，其中对局部变量的使用使你无法采用Extract Method</li>
+<li>将这个函数放进一个单独对象中，如此一来局部变量就成了对象内的字段。然后可以在同一个对象中将这个大型函数分解为多个小型函数</li>
+<li>只要将相对独立的代码从大型函数中提取出来，就可以大大提高代码的可读性</li>
+<li>太多的局部变量会对函数提取造成很大的困难，这时候使用 Method Object 会有很好的效果，辅以Replace Temp with Query</li>
+<li>建立一个新类，根据待处理函数的用途，为这个类命名</li>
+<li>在新类中建立一个final字段，用以保存原先大型函数所在的对象–源对象。同时针对原函数中的每个临时变量和每个参数，在新类中建立一个对象的字段保存之</li>
+<li>在新类中建立一个构造函数，接受源对象以及原函数的所有参数作为参数</li>
+<li>在新类中建立一个compute()函数</li>
+<li>将原函数的代码复制到compute函数中。如果需要使用源对象的任何函数，请通过源对象字段调用</li>
+<li>编译。</li>
+<li>将旧函数的函数本体替换成这样一条语句 ： “创建上述新类的一个对象，而后通过调用其中的compute（） 函数”</li>
+<li>最后可以对新类中的大型函数进行拆解，因为临时变量全部变成了字段，不必传递任何参数</li>
+</ul>
+<h4 id="9-Substitute_Algorithm_28_u66FF_u6362_u7B97_u6CD5_29"><a href="#9-Substitute_Algorithm_28_u66FF_u6362_u7B97_u6CD5_29" class="headerlink" title="9.Substitute Algorithm(替换算法)"></a>9.Substitute Algorithm(替换算法)</h4><ul>
+<li>你需要将某个算法替换成更清晰的算法</li>
+<li>将函数本体替换为另一个算法</li>
+<li>准备好另一个（替换用）算法，让他通过编译</li>
+<li>针对现有的测试，执行上述新算法。如果结果与原本结果相同，重构结束</li>
+<li>如果现有测试结果不同于原先，在测试和调试过程中，以旧算法为比较参照标准</li>
+<li>对于每个测试用例，分别以新旧两种算法执行，并观察两者结果是否相同，这可以帮助你看到哪一个测试用例出现麻烦，以及出现了什么样的麻烦</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://FrankBian.github.io/2016/01/02/重新组织函数/" data-id="ciix7gptp0001kjuyzq2g0id3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-设计模式的六大原则" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/01/02/设计模式的六大原则/" class="article-date">
+  <time datetime="2016-01-02T14:28:12.000Z" itemprop="datePublished">2016-01-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>现在也体会到了，重构可以使设计更加完善。<br>至于设计模式，虽然读了好几遍，但是也只有真正用到时才能够体会的深一点</p>
+<h1 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h1><p>简单记录下设计模式的六大原则 ：</p>
+<h3 id="u5F00_u653E_u5C01_u95ED_u539F_u5219_uFF08Open_Close_Principle_uFF09"><a href="#u5F00_u653E_u5C01_u95ED_u539F_u5219_uFF08Open_Close_Principle_uFF09" class="headerlink" title="开放封闭原则（Open Close Principle）"></a>开放封闭原则（Open Close Principle）</h3><p>开闭原则的定义</p>
+<blockquote>
+<p>程序的实体对象（模块、类、函数等）应该可以进行扩展，但不应该可以修改）   </p>
+</blockquote>
+<p>开闭原则的特征</p>
+<ul>
+<li>对于扩展是开放的</li>
+<li>对于修改是封闭的</li>
+</ul>
+<p>在具体的实现中 ，尽量使用接口和抽象类</p>
+<h3 id="u91CC_u6C0F_u4EE3_u6362_u539F_u5219__uFF08Liskov_Substitution_Principle_uFF09"><a href="#u91CC_u6C0F_u4EE3_u6362_u539F_u5219__uFF08Liskov_Substitution_Principle_uFF09" class="headerlink" title="里氏代换原则 （Liskov Substitution Principle）"></a>里氏代换原则 （Liskov Substitution Principle）</h3><p>里氏代换原则的定义</p>
+<blockquote>
+<p>子类型必须能够替换掉他们的父类型   </p>
+</blockquote>
+<p>说明</p>
+<blockquote>
+<p>只有满足了LSP后，也就是说子类可以代替父类出现，并且不影响程序的功能时，父类才能正真得到复用，<br>并且子类在父类的基础上添加新的行为。面向对象思想中，父类与子类的继承关系是抽象化的具体实现。LSP是对实现抽象化的具体步骤的规范</p>
+</blockquote>
+<h3 id="u4F9D_u8D56_u5012_u8F6C_u539F_u5219__uFF08Dependency_Inversion_Principle_uFF09"><a href="#u4F9D_u8D56_u5012_u8F6C_u539F_u5219__uFF08Dependency_Inversion_Principle_uFF09" class="headerlink" title="依赖倒转原则 （Dependency Inversion Principle）"></a>依赖倒转原则 （Dependency Inversion Principle）</h3><p>依赖倒转原则的定义</p>
+<blockquote>
+<p>程序的高层模块不应该依赖于底层模块，但两者都应该依赖于抽象；抽象不应该依赖于具体细节，而细节应该依赖于抽象   </p>
+</blockquote>
+<p>说明</p>
+<blockquote>
+<p>实现开放封闭原则的关键就是抽象化，并且从抽象化得出具体化的实例。如果说实现开放封闭原则是面向对象设计的主要目标，那么依赖倒转原则就是面向对象设计的主要机制。</p>
+</blockquote>
+<h3 id="u63A5_u53E3_u9694_u79BB_u539F_u5219__uFF08Interface_Segregation_Principle_uFF09"><a href="#u63A5_u53E3_u9694_u79BB_u539F_u5219__uFF08Interface_Segregation_Principle_uFF09" class="headerlink" title="接口隔离原则 （Interface Segregation Principle）"></a>接口隔离原则 （Interface Segregation Principle）</h3><p>接口隔离原则的定义</p>
+<blockquote>
+<p>类间的依赖应该建立在最小的接口上  </p>
+</blockquote>
+<p>说明</p>
+<blockquote>
+<p>接口隔离原则与单一职责原则有些类似 ，不过不同在于 ： 单一职责原则要求的是类和接口职责单一，注重的是职责，是业务逻辑上的划分。而接口隔离要求的是接口的方法尽量少，尽量有用（针对一个模块）   </p>
+</blockquote>
+<p>接口隔离原则的一些规范</p>
+<ul>
+<li>接口尽量小</li>
+<li>接口高内聚</li>
+<li>接口设计是有限度的</li>
+</ul>
+<p>说明</p>
+<blockquote>
+<p>如果过分遵循接口隔离原则的话，会出现一个问题，就是接口的设计力度越来越小，接口数量越来越多，系统复杂度增加，对于真实项目而言是有问题的，所以也需要根据经验去区分地使用</p>
+</blockquote>
+<h3 id="u8FEA_u7C73_u7279_u6CD5_u5219__28Demeter_Principle_29"><a href="#u8FEA_u7C73_u7279_u6CD5_u5219__28Demeter_Principle_29" class="headerlink" title="迪米特法则  (Demeter Principle)"></a>迪米特法则  (Demeter Principle)</h3><p>迪米特法则（最少知道原则）的定义</p>
+<blockquote>
+<p>如果两个类之间不必直接通信，则这两个类不应该发生直接的相互作用。如果一个类需要调用另一个类的某个方法，可以通过第三方来转发这个调用</p>
+</blockquote>
+<p>说明</p>
+<blockquote>
+<p>每个实体都应该尽量的高内聚，降低与别的实体的耦合度</p>
+</blockquote>
+<h3 id="u5408_u6210/_u805A_u5408_u590D_u7528_u539F_u5219__uFF08Composite_Reuse_Principle_uFF09"><a href="#u5408_u6210/_u805A_u5408_u590D_u7528_u539F_u5219__uFF08Composite_Reuse_Principle_uFF09" class="headerlink" title="合成/聚合复用原则 （Composite Reuse Principle）"></a>合成/聚合复用原则 （Composite Reuse Principle）</h3><p>合成/聚合 复用原则的定义</p>
+<blockquote>
+<p>尽量不要使用类继承，而尽量使用合成/聚合</p>
+</blockquote>
+<p>优缺点</p>
+<ul>
+<li>新的对象存取子对象的唯一方法是通过子对象的接口。</li>
+<li>这种复用是黑箱的复用，因为子对象的内部细节是新对象看不见的</li>
+<li>这种复用更好的支持封装的特性</li>
+<li>这种复用实现上的相互依赖性是比较小得</li>
+<li>每一个新的类都可以将焦点集中在一个任务上</li>
+<li>这种复用可以在运行时动态的进行，新的对象可以动态的引用与子对象类型相同的对象</li>
+<li>作为复用手段几乎可以应用到任何环境中去</li>
+<li>缺点是系统中有较多的对象需要管理</li>
+</ul>
+<h3 id="u5355_u4E00_u804C_u8D23_u539F_u5219__uFF08Single_Responsibility_Principle_uFF09"><a href="#u5355_u4E00_u804C_u8D23_u539F_u5219__uFF08Single_Responsibility_Principle_uFF09" class="headerlink" title="单一职责原则 （Single Responsibility Principle）"></a>单一职责原则 （Single Responsibility Principle）</h3><p>单一职责原则的定义</p>
+<blockquote>
+<p>对于一个类 应该有且只有一个引起它变化的原因</p>
+</blockquote>
+<p>单一职责原则的意义</p>
+<ul>
+<li>降低类的复杂性，实现什么样的职责都有清晰的定义</li>
+<li>提高可读性</li>
+<li>提高可维护性</li>
+<li>降低变更引起的风险，对系统扩展性和维护性都有帮助<br>说明</li>
+</ul>
+<blockquote>
+<p>过多使用也会导致接口数量增多，系统复杂性升高。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://FrankBian.github.io/2016/01/02/设计模式的六大原则/" data-id="ciix7gpu10002kjuy0wovwe4c" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Refactoring List 名词介绍" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/01/02/Refactoring List 名词介绍/" class="article-date">
+  <time datetime="2016-01-02T14:27:55.000Z" itemprop="datePublished">2016-01-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="u540D_u8BCD_u4ECB_u7ECD"><a href="#u540D_u8BCD_u4ECB_u7ECD" class="headerlink" title="名词介绍"></a>名词介绍</h1><ul>
+<li>Add Parameter : 添加参数</li>
+<li>Change Bidirectional Association to Unidirectional : 将双向关联改为单向</li>
+<li>Change Reference to Value : 将引用对象改为值对象</li>
+<li>Change Unidirectional Association to Bidirectional : 将单向关联改为双向</li>
+<li>Change Value to Reference : 将值对象改为引用对象</li>
+<li>Collapse Hierarchy : 合并继承层次</li>
+<li>Consolidate Conditional Expression : 合并条件语句</li>
+<li>Consolidate Duplicate Conditional Fragments : 合并重复的条件片段</li>
+<li>Convert Procedural Design to Objects :  将过程式设计转换为面向对象</li>
+<li>Decompose Conditional : 分解条件语句</li>
+<li>Duplicate Observe Data :  重复被观察数据</li>
+<li>Encapsulate Conllection :  封装集合</li>
+<li>Encapsulate Downcast ： 封装向下转型</li>
+<li>Encapsulate Field ： 封装字段</li>
+<li>Extract Class ： 提取类</li>
+<li>Extract Hierarchy ： 提取继承层次</li>
+<li>Extract Interface ： 提取接口</li>
+<li>Extract Method ： 提取方法</li>
+<li>Extract Subclass ： 提取子类</li>
+<li>Extract Superclass ： 提取超类</li>
+<li>Form Template Method ：形成模板方法</li>
+<li>Hide Delegate ： 隐藏委托类</li>
+<li>Hide Method ： 隐藏方法</li>
+<li>Inline Class ： 内联类</li>
+<li>Inline Temp ： 内联临时方法</li>
+<li>Introduce Assertion ： 引入断言</li>
+<li>Introduce Explaining Variable ： 引入解释性变量</li>
+<li>Introduce Foreign Method ： 引入外加方法</li>
+<li>Introduce Local Extension ： 引入本地扩展类</li>
+<li>Introduce Null Object ： 引入null对象</li>
+<li>Introduce Parameter Object ： 引入参数对象</li>
+<li>Move Field ： 移动字段</li>
+<li>Move Method ： 移动方法</li>
+<li>Parameterize Method： 参数化方法</li>
+<li>Preserve Whole Object : 保持对象完整</li>
+<li>Pull Up Constructor Body ： 上移构造体主体</li>
+<li>Pull Up Field ： 上移字段</li>
+<li>Pull Up Method ： 上移方法</li>
+<li>Pulldown Field ： 下移字段</li>
+<li>Pulldown Method ：下移方法</li>
+<li>Remove Assignments to Parameters : 去除参数赋值</li>
+<li>Remove Control Flag : 去除控制标志</li>
+<li>Remove Middle Man ： 去除中间人</li>
+<li>Remove Parameter ： 去除参数</li>
+<li>Remove Setting Method ： 去除设置方法</li>
+<li>Rename Method ： 重命名函数</li>
+<li>Replace Array with Object ： 用对象代替数组</li>
+<li>Replace Conditional with Polymorphism ： 用多态代替条件语句</li>
+<li>Replace Constructor with Factory Method : 用工厂方法代替构造器</li>
+<li>Replace Data Value with Object : 用对象代替数据值</li>
+<li>Replace Delegation with Inheritance ： 用继承代替委托</li>
+<li>Replace Error Code with Exception ： 用异常代替错误码</li>
+<li>Replace Exception with Test ： 用测试代替异常</li>
+<li>Replace Inheritance with Delegation ： 用委托代替继承</li>
+<li>Replace Magic Number with Symbolic Constant :  用字面常量代替魔数</li>
+<li>Replace Method with Method Object : 用方法对象代替方法</li>
+<li>Repalce Nested Conditional with Guard Clauses : 用守卫语句代替嵌套条件语句</li>
+<li>Replace Parameter with Explicit Methods  : 用显示方法代替参数</li>
+<li>Replace Parameter with Method : 用方法代替参数</li>
+<li>Replace Record with Data Class : 用数据类代替记录</li>
+<li>Replace Subclass with Fields : 用字段代替子类</li>
+<li>Replace Temp with Query : 用查询方法代替临时变量</li>
+<li>Replace Type Code with Class : 用类代替类型码</li>
+<li>Replace Type Code with State/Strategy  : 用state/strategy 代替类型码</li>
+<li>Replace Type Code with Subclass : 用子类代替类型码</li>
+<li>Self Encapsulate Field : 自封装字段</li>
+<li>Separate Domain from Presentation : 将领域逻辑和表现分离</li>
+<li>Separate Query from Modifier : 将查询方法与修改方法分离</li>
+<li>Split Temporary Variable  :  分离临时变量</li>
+<li>Substitute Algorithm ： 替换算法</li>
+<li>Tease Apart Inheritance :  分解继承层次</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://FrankBian.github.io/2016/01/02/Refactoring List 名词介绍/" data-id="ciix7gpu40004kjuywxa4ypm6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-blogs" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/01/02/blogs/" class="article-date">
+  <time datetime="2016-01-02T14:26:50.000Z" itemprop="datePublished">2016-01-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Some_Articals"><a href="#Some_Articals" class="headerlink" title="Some Articals"></a>Some Articals</h2><ul>
+<li>牛顿冷却定理 ： <a href="http://blog.jobbole.com/16327/" target="_blank" rel="external">http://blog.jobbole.com/16327/</a></li>
+<li>HackerNews排名算法 : <a href="http://blog.jobbole.com/15713/" target="_blank" rel="external">http://blog.jobbole.com/15713/</a></li>
+<li>StackOverFlow排名算法 ： <a href="http://blog.jobbole.com/16146/" target="_blank" rel="external">http://blog.jobbole.com/16146/</a></li>
+<li>Reddit排名算法 ： <a href="http://blog.jobbole.com/15727/" target="_blank" rel="external">http://blog.jobbole.com/15727/</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://FrankBian.github.io/2016/01/02/blogs/" data-id="ciix7gpu20003kjuyowsjcs09" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-RESTful Basics" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/01/02/RESTful Basics/" class="article-date">
+  <time datetime="2016-01-02T14:26:18.000Z" itemprop="datePublished">2016-01-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="RESTful_Web_Services__3A_The_basics"><a href="#RESTful_Web_Services__3A_The_basics" class="headerlink" title="RESTful Web Services : The basics"></a>RESTful Web Services : The basics</h1><p>Representational State Transfer(REST)<br><a href="http://www.ibm.com/developerworks/library/ws-restful/" target="_blank" rel="external">Abstract from IBM developerWorks - A good article for understanding the RESTful</a> </p>
+<h2 id="The_basics"><a href="#The_basics" class="headerlink" title="The basics"></a>The basics</h2><p>a concrete implementation of a REST Web service follows four basic design principles :</p>
+<ul>
+<li>Use HTTP methods explicitly.</li>
+<li>Be stateless.</li>
+<li>Expose directory structure-like URIs.</li>
+<li>Transfer XML, JSON ,or both.</li>
+</ul>
+<h3 id="Use_HTTP_methods_explicitly"><a href="#Use_HTTP_methods_explicitly" class="headerlink" title="Use HTTP methods explicitly"></a>Use HTTP methods explicitly</h3><p>REST asks developers to use HTTP methods explicitly and in a way that’s consistent with the protocol definition. This basic REST design principle establishes a one-to-one mapping between create,read,update,and delete(CRUD) operations and HTTP methods. According to this mapping :</p>
+<ul>
+<li>To create a resource on the server , use POST.</li>
+<li>To retrieve a resource , use GET.</li>
+<li>To change the state of a resource or to update it , use PUT.</li>
+<li>To remove or delete a resource , use DELETE.</li>
+</ul>
+<p>As a general design principle , it helps to follow REST guidelines for using HTTP methods explicitly by using nouns in URIs instead of verbs. In a RESTful Web service , the verbs - POST, GET, PUT , and DELETE - are already defined by the protocol.<br>And ideally, to keep the interface generalized and to allow clients to be explicit about the operations they invoke , the Web service should not define more verbs or remote procedures, such as <code>/addUser</code> or <code>/updateUser</code> . This general design principle also applies to the body of an HTTP request , which is intended to be used to transfer resource state, not to carry the name of a remote method or remote procedure to be invoked.</p>
+<h3 id="Be_stateless"><a href="#Be_stateless" class="headerlink" title="Be stateless"></a>Be stateless</h3><p>REST Web services need to scale to meet increasingly high performance demands.</p>
+<h4 id="Server"><a href="#Server" class="headerlink" title="Server"></a>Server</h4><ul>
+<li><strong>Generates responses that include links to other resources to allow applications to navigate between related resources.</strong> This type of response embed links . Similarly , if the request is for a parent or container resource, then a typical RESTful response might also include links to the parent’s children or subordinate resources so that these remain connected.</li>
+<li><strong>Generates responses that indicate whether they are cache-able or not to improve performance by reducing the number of requests for duplicate resources and by eliminating some requests entirely.</strong> The server does this by including a Cache-Control and Last-Modified (a data value) HTTP response header.</li>
+</ul>
+<h4 id="Client_Application"><a href="#Client_Application" class="headerlink" title="Client Application"></a>Client Application</h4><ul>
+<li><strong>Uses the Cache-Control response header to determine whether to cache the resource (make a local copy of it) or not.</strong> The client also reads the Last-Modified response header and sends back the date value in an If-Modified-Since header to ask the server if the resource has changed. This is called Conditional GET , and the two headers go hand in hand in that the server’s response is a standard 304 code (Not Modified) and omits the actual resource requested if it has not changed since that time. <em>A 304 HTTP response code means the client can safely use a cached, local copy of the resource representation as the most up-to-date, in effect bypassing subsequent GET requests until the resource changes.</em></li>
+<li><strong>Sends complete requests that can be serviced independently of other requests.</strong> This requires the client to make full use of HTTP headers as specified by the Web service interface and to send complete representations of resources in the request body. The client sends requests that make very few assumptions about prior requests, the existence of a session on the server, the server’s ability to add context to a request, or about application state that is kept in between requests.</li>
+</ul>
+<h4 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h4><p>This collaboration between client application and service is essential to being stateless in a RESTful Web service. It improves performances by saving bandwidth and minimizing server-side application state.</p>
+<h3 id="Expose_directory_structure-like_URIs"><a href="#Expose_directory_structure-like_URIs" class="headerlink" title="Expose directory structure-like URIs"></a>Expose directory structure-like URIs</h3><p>From the standpoint of client applications addressing resources, the URIs determine how intuitive the REST Web service is going to be and whether the service is going to be used in ways that the designers can anticipate. A third RESTful Web service characteristic is all about the URIs.</p>
+<ul>
+<li>REST Web service URIs should be intuitive to the point where they are easy to guess. To this end , the structure of a URI should be straightforward, predictable , and easily understood.</li>
+<li>One way to achieve this level of usability is to define directory structure-like URIs. This type of URI is hierarchical, rooted at a single path, and branching from it are sub-paths that expose the service’s main areas. <ul>
+<li>According to this definition, a URI is not merely a slash-delimited string, but rather a tree with subordinate and superordinate branches connected at nodes. </li>
+<li>In some cases, the path to a resource lends itself especially well to a directory-like structure. Take resources organized by date, for instance, which are a very good match for using a hierarchical syntax.</li>
+</ul>
+</li>
+<li>Some additional guidelines to make note of while thinking about URI structure for a RESTful Web service :<ul>
+<li>Hide the server-side scripting technology file extensions (.jsp, .php, .asp), if any, so you can port to something else without changing the URIs.</li>
+<li>Keep everything lowercase.</li>
+<li>Substitute spaces with hyphens or underscores (one or the other ).</li>
+<li>Avoid query strings as much as you can.</li>
+<li>Instead of using the 404 NOT Found code if the request URI is for a partial path, always provide a default page for resource as a response.</li>
+</ul>
+</li>
+</ul>
+<p>URIs should also be static so that when the resource changes or the implementation of the service changes, the link stays the same. This allows bookmarking. It’s also important that the relationship between resources that’s encoded in the URIs remains independent of the way the relationships are represented where they are stored.</p>
+<h3 id="Transfer_XML_2C_JSON__2C_or_both"><a href="#Transfer_XML_2C_JSON__2C_or_both" class="headerlink" title="Transfer XML, JSON , or both"></a>Transfer XML, JSON , or both</h3><p><em>To give client applications the ability to request a specific content type that’s best suited for them.</em>  </p>
+<p>construct your service so that it makes use of the built-in HTTP Accept header, where the value of the header is a MIME type. Some common MIME types used by RESTful services are shown in Table 1.  </p>
+<p><em>Table 1. Common MIME types used by RESTful services</em><br>MIME-Type  |  Content-Type<br>JSON  |  application/json<br>XML  |  application/xml<br>XHTML  |  application/xhtml+xml </p>
+<p>This allows the service to be used by a variety of clients written in different languages running on different platforms and devices. Using MIME types and the HTTP Accept header is a mechanism known as content negotiation, which lets clients choose which data format is right for them and minimizes data coupling between the service and the applications that use it.</p>
+<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><pre><code>REST is not always the right choice. It has caught on as a way to design Web services with less dependence on proprietary middle-ware (for example, an application server) than the SOAP- and WSDL-based kind. And in a sense, REST is a return to the Web the way it was before the age of the big application server, through its emphasis on the early Internet standards, URI and HTTP. As you&apos;ve examined in the so-called principles of RESTful interface design, XML over HTTP is a powerful interface that allows internal applications, such as Asynchronous JavaScript + XML (Ajax)-based custom user interfaces, to easily connect, address, and consume resources. In fact, the great fit between Ajax and REST has increased the amount of attention REST is getting these days.
+Exposing a system&apos;s resources through a RESTful API is a flexible way to provide different kinds of applications with data formatted in a standard way. It helps to meet integration requirements that are critical to building systems where data can be easily combined (mashups) and to extend or build on a set of base, RESTful services into something much bigger. This article touches on just the basics here but hopefully in a way that has enticed you to continue exploring the subject.
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://FrankBian.github.io/2016/01/02/RESTful Basics/" data-id="ciix7gpu50005kjuy4tz22ymu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -125,7 +539,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">6</span></li></ul>
     </div>
   </div>
 
@@ -137,7 +551,23 @@
       <ul>
         
           <li>
-            <a href="/2015/12/23/hello-world/">Hello World</a>
+            <a href="/2016/01/02/Code Smell/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/02/重新组织函数/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/02/设计模式的六大原则/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/02/Refactoring List 名词介绍/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/02/blogs/">(no title)</a>
           </li>
         
       </ul>

@@ -3,17 +3,30 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives | Tech Note</title>
+  <title>Tech Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Bian&apos;s tech Blog">
-<meta property="og:type" content="website">
+  <meta name="description" content="Code Smell By Kent Beck and Martin Fowler: https://sourcemaking.com/refactoring/bad-smells-in-code
+
+If it stinks, change it.-Grandma Beck, discussing child-rearing philosophy (出自Beck奶奶，讨论抚养小孩的哲学)
+
+The">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Tech Note">
-<meta property="og:url" content="http://FrankBian.github.io/archives/index.html">
+<meta property="og:url" content="http://FrankBian.github.io/2016/01/02/Code Smell/index.html">
 <meta property="og:site_name" content="Tech Note">
-<meta property="og:description" content="Bian&apos;s tech Blog">
+<meta property="og:description" content="Code Smell By Kent Beck and Martin Fowler: https://sourcemaking.com/refactoring/bad-smells-in-code
+
+If it stinks, change it.-Grandma Beck, discussing child-rearing philosophy (出自Beck奶奶，讨论抚养小孩的哲学)
+
+The">
+<meta property="og:updated_time" content="2015-07-15T07:42:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tech Note">
-<meta name="twitter:description" content="Bian&apos;s tech Blog">
+<meta name="twitter:description" content="Code Smell By Kent Beck and Martin Fowler: https://sourcemaking.com/refactoring/bad-smells-in-code
+
+If it stinks, change it.-Grandma Beck, discussing child-rearing philosophy (出自Beck奶奶，讨论抚养小孩的哲学)
+
+The">
   
     <link rel="alternative" href="/atom.xml" title="Tech Note" type="application/atom+xml">
   
@@ -63,98 +76,71 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/01/02/Code Smell/" class="archive-article-date">
-  <time datetime="2016-01-02T14:28:45.000Z" itemprop="datePublished">Jan 2</time>
+        <section id="main"><article id="post-Code Smell" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/01/02/Code Smell/" class="article-date">
+  <time datetime="2016-01-02T14:28:45.000Z" itemprop="datePublished">2016-01-02</time>
 </a>
-      
-    </header>
+    
   </div>
-</article>
-  
+  <div class="article-inner">
     
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/01/02/重新组织函数/" class="archive-article-date">
-  <time datetime="2016-01-02T14:28:28.000Z" itemprop="datePublished">Jan 2</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/01/02/设计模式的六大原则/" class="archive-article-date">
-  <time datetime="2016-01-02T14:28:12.000Z" itemprop="datePublished">Jan 2</time>
-</a>
+        <h1 id="Code_Smell"><a href="#Code_Smell" class="headerlink" title="Code Smell"></a>Code Smell</h1><p> By Kent Beck and Martin Fowler: <a href="https://sourcemaking.com/refactoring/bad-smells-in-code" target="_blank" rel="external">https://sourcemaking.com/refactoring/bad-smells-in-code</a></p>
+<blockquote>
+<p>If it stinks, change it.<br>-Grandma Beck, discussing child-rearing philosophy (出自Beck奶奶，讨论抚养小孩的哲学)</p>
+</blockquote>
+<p>The kinds of Code Smell :</p>
+<ul>
+<li>Duplicated Code - 重复代码</li>
+<li>Long Method - 过长的函数</li>
+<li>Large Class - 过大的类</li>
+<li>Long Parameter List - 过长的参数列表</li>
+<li>Divergent Change - 发散式变化</li>
+<li>Shotgun Surgery - 霰弹式修改</li>
+<li>Feature Envy - 依恋情结</li>
+<li>Data Clumps - 数据泥团</li>
+<li>Primitive Obsession - 基本类型偏执</li>
+<li>Switch Statements - Switch 惊悚现身</li>
+<li>Parallel Inheritance Hierarchy - 平行继承体系</li>
+<li>Lazy Class - 冗赘类</li>
+<li>Speculative Generality - 夸夸其谈未来性</li>
+<li>Temporary Field - 令人迷惑的临时字段</li>
+<li>Message Chains - 过度耦合的消息链</li>
+<li>Middle Man - 中间人</li>
+<li>Inappropriate Intimacy - 狎昵关系(过度亲密)</li>
+<li>Alternative Classes with different interfaces - 异曲同工的类</li>
+<li>Incomplete Library Class - 不完美的库类</li>
+<li>Data Class - 幼稚的数据类</li>
+<li>Refused Bequest - 被拒绝的遗赠</li>
+<li>Comments - 过多的注释</li>
+</ul>
+
       
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/01/02/Refactoring List 名词介绍/" class="archive-article-date">
-  <time datetime="2016-01-02T14:27:55.000Z" itemprop="datePublished">Jan 2</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://FrankBian.github.io/2016/01/02/Code Smell/" data-id="ciix7gptg0000kjuycu9yxwgu" class="article-share-link">Share</a>
       
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/01/02/blogs/" class="archive-article-date">
-  <time datetime="2016-01-02T14:26:50.000Z" itemprop="datePublished">Jan 2</time>
-</a>
       
-    </header>
+    </footer>
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/01/02/RESTful Basics/" class="archive-article-date">
-  <time datetime="2016-01-02T14:26:18.000Z" itemprop="datePublished">Jan 2</time>
-</a>
-      
-    </header>
-  </div>
+<nav id="article-nav">
+  
+  
+    <a href="/2016/01/02/重新组织函数/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
 </section>
         
           <aside id="sidebar">

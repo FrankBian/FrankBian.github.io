@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Tech Note</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="RESTful Web Services : The basicsRepresentational State Transfer(REST)Abstract from IBM developerWorks - A good article for understanding the RESTful 
+The basicsa concrete implementation of a REST Web">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tech Note">
+<meta property="og:url" content="http://FrankBian.github.io/2016/01/02/RESTful Basics/index.html">
+<meta property="og:site_name" content="Tech Note">
+<meta property="og:description" content="RESTful Web Services : The basicsRepresentational State Transfer(REST)Abstract from IBM developerWorks - A good article for understanding the RESTful 
+The basicsa concrete implementation of a REST Web">
+<meta property="og:updated_time" content="2015-07-01T06:01:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Tech Note">
+<meta name="twitter:description" content="RESTful Web Services : The basicsRepresentational State Transfer(REST)Abstract from IBM developerWorks - A good article for understanding the RESTful 
+The basicsa concrete implementation of a REST Web">
+  
+    <link rel="alternative" href="/atom.xml" title="Tech Note" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Tech Note</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">On the way</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://FrankBian.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-RESTful Basics" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/01/02/RESTful Basics/" class="article-date">
+  <time datetime="2016-01-02T14:26:18.000Z" itemprop="datePublished">2016-01-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="RESTful_Web_Services__3A_The_basics"><a href="#RESTful_Web_Services__3A_The_basics" class="headerlink" title="RESTful Web Services : The basics"></a>RESTful Web Services : The basics</h1><p>Representational State Transfer(REST)<br><a href="http://www.ibm.com/developerworks/library/ws-restful/" target="_blank" rel="external">Abstract from IBM developerWorks - A good article for understanding the RESTful</a> </p>
+<h2 id="The_basics"><a href="#The_basics" class="headerlink" title="The basics"></a>The basics</h2><p>a concrete implementation of a REST Web service follows four basic design principles :</p>
+<ul>
+<li>Use HTTP methods explicitly.</li>
+<li>Be stateless.</li>
+<li>Expose directory structure-like URIs.</li>
+<li>Transfer XML, JSON ,or both.</li>
+</ul>
+<h3 id="Use_HTTP_methods_explicitly"><a href="#Use_HTTP_methods_explicitly" class="headerlink" title="Use HTTP methods explicitly"></a>Use HTTP methods explicitly</h3><p>REST asks developers to use HTTP methods explicitly and in a way that’s consistent with the protocol definition. This basic REST design principle establishes a one-to-one mapping between create,read,update,and delete(CRUD) operations and HTTP methods. According to this mapping :</p>
+<ul>
+<li>To create a resource on the server , use POST.</li>
+<li>To retrieve a resource , use GET.</li>
+<li>To change the state of a resource or to update it , use PUT.</li>
+<li>To remove or delete a resource , use DELETE.</li>
+</ul>
+<p>As a general design principle , it helps to follow REST guidelines for using HTTP methods explicitly by using nouns in URIs instead of verbs. In a RESTful Web service , the verbs - POST, GET, PUT , and DELETE - are already defined by the protocol.<br>And ideally, to keep the interface generalized and to allow clients to be explicit about the operations they invoke , the Web service should not define more verbs or remote procedures, such as <code>/addUser</code> or <code>/updateUser</code> . This general design principle also applies to the body of an HTTP request , which is intended to be used to transfer resource state, not to carry the name of a remote method or remote procedure to be invoked.</p>
+<h3 id="Be_stateless"><a href="#Be_stateless" class="headerlink" title="Be stateless"></a>Be stateless</h3><p>REST Web services need to scale to meet increasingly high performance demands.</p>
+<h4 id="Server"><a href="#Server" class="headerlink" title="Server"></a>Server</h4><ul>
+<li><strong>Generates responses that include links to other resources to allow applications to navigate between related resources.</strong> This type of response embed links . Similarly , if the request is for a parent or container resource, then a typical RESTful response might also include links to the parent’s children or subordinate resources so that these remain connected.</li>
+<li><strong>Generates responses that indicate whether they are cache-able or not to improve performance by reducing the number of requests for duplicate resources and by eliminating some requests entirely.</strong> The server does this by including a Cache-Control and Last-Modified (a data value) HTTP response header.</li>
+</ul>
+<h4 id="Client_Application"><a href="#Client_Application" class="headerlink" title="Client Application"></a>Client Application</h4><ul>
+<li><strong>Uses the Cache-Control response header to determine whether to cache the resource (make a local copy of it) or not.</strong> The client also reads the Last-Modified response header and sends back the date value in an If-Modified-Since header to ask the server if the resource has changed. This is called Conditional GET , and the two headers go hand in hand in that the server’s response is a standard 304 code (Not Modified) and omits the actual resource requested if it has not changed since that time. <em>A 304 HTTP response code means the client can safely use a cached, local copy of the resource representation as the most up-to-date, in effect bypassing subsequent GET requests until the resource changes.</em></li>
+<li><strong>Sends complete requests that can be serviced independently of other requests.</strong> This requires the client to make full use of HTTP headers as specified by the Web service interface and to send complete representations of resources in the request body. The client sends requests that make very few assumptions about prior requests, the existence of a session on the server, the server’s ability to add context to a request, or about application state that is kept in between requests.</li>
+</ul>
+<h4 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h4><p>This collaboration between client application and service is essential to being stateless in a RESTful Web service. It improves performances by saving bandwidth and minimizing server-side application state.</p>
+<h3 id="Expose_directory_structure-like_URIs"><a href="#Expose_directory_structure-like_URIs" class="headerlink" title="Expose directory structure-like URIs"></a>Expose directory structure-like URIs</h3><p>From the standpoint of client applications addressing resources, the URIs determine how intuitive the REST Web service is going to be and whether the service is going to be used in ways that the designers can anticipate. A third RESTful Web service characteristic is all about the URIs.</p>
+<ul>
+<li>REST Web service URIs should be intuitive to the point where they are easy to guess. To this end , the structure of a URI should be straightforward, predictable , and easily understood.</li>
+<li>One way to achieve this level of usability is to define directory structure-like URIs. This type of URI is hierarchical, rooted at a single path, and branching from it are sub-paths that expose the service’s main areas. <ul>
+<li>According to this definition, a URI is not merely a slash-delimited string, but rather a tree with subordinate and superordinate branches connected at nodes. </li>
+<li>In some cases, the path to a resource lends itself especially well to a directory-like structure. Take resources organized by date, for instance, which are a very good match for using a hierarchical syntax.</li>
+</ul>
+</li>
+<li>Some additional guidelines to make note of while thinking about URI structure for a RESTful Web service :<ul>
+<li>Hide the server-side scripting technology file extensions (.jsp, .php, .asp), if any, so you can port to something else without changing the URIs.</li>
+<li>Keep everything lowercase.</li>
+<li>Substitute spaces with hyphens or underscores (one or the other ).</li>
+<li>Avoid query strings as much as you can.</li>
+<li>Instead of using the 404 NOT Found code if the request URI is for a partial path, always provide a default page for resource as a response.</li>
+</ul>
+</li>
+</ul>
+<p>URIs should also be static so that when the resource changes or the implementation of the service changes, the link stays the same. This allows bookmarking. It’s also important that the relationship between resources that’s encoded in the URIs remains independent of the way the relationships are represented where they are stored.</p>
+<h3 id="Transfer_XML_2C_JSON__2C_or_both"><a href="#Transfer_XML_2C_JSON__2C_or_both" class="headerlink" title="Transfer XML, JSON , or both"></a>Transfer XML, JSON , or both</h3><p><em>To give client applications the ability to request a specific content type that’s best suited for them.</em>  </p>
+<p>construct your service so that it makes use of the built-in HTTP Accept header, where the value of the header is a MIME type. Some common MIME types used by RESTful services are shown in Table 1.  </p>
+<p><em>Table 1. Common MIME types used by RESTful services</em><br>MIME-Type  |  Content-Type<br>JSON  |  application/json<br>XML  |  application/xml<br>XHTML  |  application/xhtml+xml </p>
+<p>This allows the service to be used by a variety of clients written in different languages running on different platforms and devices. Using MIME types and the HTTP Accept header is a mechanism known as content negotiation, which lets clients choose which data format is right for them and minimizes data coupling between the service and the applications that use it.</p>
+<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><pre><code>REST is not always the right choice. It has caught on as a way to design Web services with less dependence on proprietary middle-ware (for example, an application server) than the SOAP- and WSDL-based kind. And in a sense, REST is a return to the Web the way it was before the age of the big application server, through its emphasis on the early Internet standards, URI and HTTP. As you&apos;ve examined in the so-called principles of RESTful interface design, XML over HTTP is a powerful interface that allows internal applications, such as Asynchronous JavaScript + XML (Ajax)-based custom user interfaces, to easily connect, address, and consume resources. In fact, the great fit between Ajax and REST has increased the amount of attention REST is getting these days.
+Exposing a system&apos;s resources through a RESTful API is a flexible way to provide different kinds of applications with data formatted in a standard way. It helps to meet integration requirements that are critical to building systems where data can be easily combined (mashups) and to extend or build on a set of base, RESTful services into something much bigger. This article touches on just the basics here but hopefully in a way that has enticed you to continue exploring the subject.
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://FrankBian.github.io/2016/01/02/RESTful Basics/" data-id="ciix7gpu50005kjuy4tz22ymu" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/01/02/blogs/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/01/02/Code Smell/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/02/重新组织函数/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/02/设计模式的六大原则/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/02/Refactoring List 名词介绍/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/02/blogs/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Frank Bian<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
