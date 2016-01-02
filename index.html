@@ -68,16 +68,26 @@
     <article id="post-Code Smell" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/01/02/Code Smell/" class="article-date">
-  <time datetime="2016-01-02T14:28:45.000Z" itemprop="datePublished">2016-01-02</time>
+  <time datetime="2016-01-02T14:49:22.000Z" itemprop="datePublished">2016-01-02</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/02/Code Smell/">Code Smell</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Code_Smell"><a href="#Code_Smell" class="headerlink" title="Code Smell"></a>Code Smell</h1><p> By Kent Beck and Martin Fowler: <a href="https://sourcemaking.com/refactoring/bad-smells-in-code" target="_blank" rel="external">https://sourcemaking.com/refactoring/bad-smells-in-code</a></p>
+        <p> By Kent Beck and Martin Fowler: <a href="https://sourcemaking.com/refactoring/bad-smells-in-code" target="_blank" rel="external">https://sourcemaking.com/refactoring/bad-smells-in-code</a></p>
 <blockquote>
 <p>If it stinks, change it.<br>-Grandma Beck, discussing child-rearing philosophy (出自Beck奶奶，讨论抚养小孩的哲学)</p>
 </blockquote>
@@ -120,10 +130,10 @@
 
 
   
-    <article id="post-重新组织函数" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Refactoring List 名词介绍" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/01/02/重新组织函数/" class="article-date">
-  <time datetime="2016-01-02T14:28:28.000Z" itemprop="datePublished">2016-01-02</time>
+    <a href="/2016/01/02/Refactoring List 名词介绍/" class="article-date">
+  <time datetime="2016-01-02T14:49:22.000Z" itemprop="datePublished">2016-01-02</time>
 </a>
     
   </div>
@@ -132,73 +142,126 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>重新组织函数是非常常用的一种方法，使之更恰当的包装代码<br><strong><em>小型函数的优美动人</em></strong></p>
-<h1 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h1><h4 id="1-Extract_Method_28_u63D0_u70BC_u51FD_u6570_29"><a href="#1-Extract_Method_28_u63D0_u70BC_u51FD_u6570_29" class="headerlink" title="1.Extract Method(提炼函数)"></a>1.Extract Method(提炼函数)</h4><ul>
-<li>尽量使函数体保持在30行以内，过长的函数需要重构</li>
-<li>如果函数都是小粒度的，那么其复用性会更好</li>
-<li>用函数名解释函数的用途</li>
-</ul>
-<h4 id="2-Inline_Method_28_u5185_u8054_u51FD_u6570_29"><a href="#2-Inline_Method_28_u5185_u8054_u51FD_u6570_29" class="headerlink" title="2.Inline Method(内联函数)"></a>2.Inline Method(内联函数)</h4><ul>
-<li>非必要的函数增加了函数调用的间接性，将其函数体内联到其调用处</li>
-<li>要对一堆存在调用关系的函数重构之前，先将被调函数内联到其调用处，然后对整个大函数进行重构  </li>
-</ul>
-<h4 id="3-Inline_Temp_28_u5185_u8054_u4E34_u65F6_u53D8_u91CF_29"><a href="#3-Inline_Temp_28_u5185_u8054_u4E34_u65F6_u53D8_u91CF_29" class="headerlink" title="3.Inline Temp(内联临时变量)"></a>3.Inline Temp(内联临时变量)</h4><ul>
-<li>如果这个临时变量妨碍了其他的重构手法，就将它内联</li>
-<li>一般可以通过声明该变量为final来检测该变量是否只被赋值一次</li>
-<li>找到临时变量的引用点，将它们替换成 为临时变量赋值 的表达式</li>
-<li>修改完之后，编译并测试</li>
-</ul>
-<h4 id="4-Replace_Temp_with_Query_28_u4EE5_u67E5_u8BE2_u53D6_u4EE3_u4E34_u65F6_u53D8_u91CF_29"><a href="#4-Replace_Temp_with_Query_28_u4EE5_u67E5_u8BE2_u53D6_u4EE3_u4E34_u65F6_u53D8_u91CF_29" class="headerlink" title="4.Replace Temp with Query(以查询取代临时变量)"></a>4.Replace Temp with Query(以查询取代临时变量)</h4><ul>
-<li>你的程序以一个临时变量保存某一表达式的运算结果， 则可以将这个表达式提炼到一个独立函数中，将这个临时变量的所有引用点替换成对新函数的调用。此后，新函数就可以其它函数使用</li>
-<li>因为临时变量只是暂时的，如果将临时变量替换成一个查询，那么同一个类中的所有函数都可以获得这份信息。这样做可以帮助你为这个类编写更加清晰的代码</li>
-<li>先将函数声明为private。日后如果发现有更多类需要使用它，那是放松对它的保护也很容易</li>
-<li>确保提炼出来的函数无任何副作用，也就是说该函数并不修改任务对象内容</li>
-</ul>
-<h4 id="5-Introduce_Explaining_Variable_28_u5F15_u5165_u89E3_u91CA_u6027_u53D8_u91CF_29"><a href="#5-Introduce_Explaining_Variable_28_u5F15_u5165_u89E3_u91CA_u6027_u53D8_u91CF_29" class="headerlink" title="5.Introduce Explaining Variable(引入解释性变量)"></a>5.Introduce Explaining Variable(引入解释性变量)</h4><ul>
-<li>你有一个复杂的表达式。将该复杂表达式（或其中一部分）的结果放进一个临时变量，以此变量名称来解释表达式用途</li>
-<li>在条件逻辑中，Introduce Explaining Variable特别有价值： 可以用这项重构将每个条件子句提炼出来，以一个良好命名的临时变量来解释对应条件子句的意义。</li>
-<li>在较长的算法中， 可以运用临时变量来解释每一步运算的意义</li>
-<li>更多情况下，尽量使用Extrat Method来解释一段代码的意义，临时变量只在它所处的函数中才有意义，局限性比较大</li>
-<li>通常情况下，Extract Method的工作量并不比Introduce Explaining Variable来得大</li>
-</ul>
-<h4 id="6-Split_Temporary_Variable_28_u5206_u89E3_u4E34_u65F6_u53D8_u91CF_29"><a href="#6-Split_Temporary_Variable_28_u5206_u89E3_u4E34_u65F6_u53D8_u91CF_29" class="headerlink" title="6.Split Temporary Variable(分解临时变量)"></a>6.Split Temporary Variable(分解临时变量)</h4><ul>
-<li>某个临时变量被复制多次，既不是循环变量，也不是用于手机计算结果，则可以针对每次赋值，创造一个独立、对应的临时变量</li>
-<li>如果临时变量承担多个责任，它就应该被替换（分解）为多个临时变量，每个变量只承担一个责任。</li>
-<li>同一个临时变量承担两件事情，会令代码阅读者糊涂</li>
-<li>使用final修饰符， 对后面的每一次赋值进行修改，每次修改后都应该编译测试</li>
-</ul>
-<h4 id="7-Remove_Assignments_to_Parameters_28_u79FB_u9664_u5BF9_u53C2_u6570_u7684_u8D4B_u503C_29"><a href="#7-Remove_Assignments_to_Parameters_28_u79FB_u9664_u5BF9_u53C2_u6570_u7684_u8D4B_u503C_29" class="headerlink" title="7.Remove Assignments to Parameters(移除对参数的赋值)"></a>7.Remove Assignments to Parameters(移除对参数的赋值)</h4><ul>
-<li>如果代码中有对参数进行的赋值，以一个临时变量取代该参数的位置</li>
-<li>在函数体内，只用参数表示“被传递进来的东西”，会使代码清晰得多，因为这种用法在所有语言中都表现出相同的语义</li>
-<li>可以在较长的函数中，使用final来修饰参数，可以帮助你检查参数是否被修改</li>
-</ul>
-<h4 id="8-Replace_Method_with_Method_Obejct_28_u4EE5_u51FD_u6570_u5BF9_u8C61_u53D6_u4EE3_u51FD_u6570_29"><a href="#8-Replace_Method_with_Method_Obejct_28_u4EE5_u51FD_u6570_u5BF9_u8C61_u53D6_u4EE3_u51FD_u6570_29" class="headerlink" title="8.Replace Method with Method Obejct(以函数对象取代函数)"></a>8.Replace Method with Method Obejct(以函数对象取代函数)</h4><ul>
-<li>如果存在一个大型函数，其中对局部变量的使用使你无法采用Extract Method</li>
-<li>将这个函数放进一个单独对象中，如此一来局部变量就成了对象内的字段。然后可以在同一个对象中将这个大型函数分解为多个小型函数</li>
-<li>只要将相对独立的代码从大型函数中提取出来，就可以大大提高代码的可读性</li>
-<li>太多的局部变量会对函数提取造成很大的困难，这时候使用 Method Object 会有很好的效果，辅以Replace Temp with Query</li>
-<li>建立一个新类，根据待处理函数的用途，为这个类命名</li>
-<li>在新类中建立一个final字段，用以保存原先大型函数所在的对象–源对象。同时针对原函数中的每个临时变量和每个参数，在新类中建立一个对象的字段保存之</li>
-<li>在新类中建立一个构造函数，接受源对象以及原函数的所有参数作为参数</li>
-<li>在新类中建立一个compute()函数</li>
-<li>将原函数的代码复制到compute函数中。如果需要使用源对象的任何函数，请通过源对象字段调用</li>
-<li>编译。</li>
-<li>将旧函数的函数本体替换成这样一条语句 ： “创建上述新类的一个对象，而后通过调用其中的compute（） 函数”</li>
-<li>最后可以对新类中的大型函数进行拆解，因为临时变量全部变成了字段，不必传递任何参数</li>
-</ul>
-<h4 id="9-Substitute_Algorithm_28_u66FF_u6362_u7B97_u6CD5_29"><a href="#9-Substitute_Algorithm_28_u66FF_u6362_u7B97_u6CD5_29" class="headerlink" title="9.Substitute Algorithm(替换算法)"></a>9.Substitute Algorithm(替换算法)</h4><ul>
-<li>你需要将某个算法替换成更清晰的算法</li>
-<li>将函数本体替换为另一个算法</li>
-<li>准备好另一个（替换用）算法，让他通过编译</li>
-<li>针对现有的测试，执行上述新算法。如果结果与原本结果相同，重构结束</li>
-<li>如果现有测试结果不同于原先，在测试和调试过程中，以旧算法为比较参照标准</li>
-<li>对于每个测试用例，分别以新旧两种算法执行，并观察两者结果是否相同，这可以帮助你看到哪一个测试用例出现麻烦，以及出现了什么样的麻烦</li>
+        <h2 id="title_3A__u91CD_u6784_u76F8_u5173_u7684_u540D_u8BCD_u4ECB_u7ECD"><a href="#title_3A__u91CD_u6784_u76F8_u5173_u7684_u540D_u8BCD_u4ECB_u7ECD" class="headerlink" title="title: 重构相关的名词介绍"></a> title: 重构相关的名词介绍</h2><h1 id="u540D_u8BCD_u4ECB_u7ECD"><a href="#u540D_u8BCD_u4ECB_u7ECD" class="headerlink" title="名词介绍"></a>名词介绍</h1><ul>
+<li>Add Parameter : 添加参数</li>
+<li>Change Bidirectional Association to Unidirectional : 将双向关联改为单向</li>
+<li>Change Reference to Value : 将引用对象改为值对象</li>
+<li>Change Unidirectional Association to Bidirectional : 将单向关联改为双向</li>
+<li>Change Value to Reference : 将值对象改为引用对象</li>
+<li>Collapse Hierarchy : 合并继承层次</li>
+<li>Consolidate Conditional Expression : 合并条件语句</li>
+<li>Consolidate Duplicate Conditional Fragments : 合并重复的条件片段</li>
+<li>Convert Procedural Design to Objects :  将过程式设计转换为面向对象</li>
+<li>Decompose Conditional : 分解条件语句</li>
+<li>Duplicate Observe Data :  重复被观察数据</li>
+<li>Encapsulate Conllection :  封装集合</li>
+<li>Encapsulate Downcast ： 封装向下转型</li>
+<li>Encapsulate Field ： 封装字段</li>
+<li>Extract Class ： 提取类</li>
+<li>Extract Hierarchy ： 提取继承层次</li>
+<li>Extract Interface ： 提取接口</li>
+<li>Extract Method ： 提取方法</li>
+<li>Extract Subclass ： 提取子类</li>
+<li>Extract Superclass ： 提取超类</li>
+<li>Form Template Method ：形成模板方法</li>
+<li>Hide Delegate ： 隐藏委托类</li>
+<li>Hide Method ： 隐藏方法</li>
+<li>Inline Class ： 内联类</li>
+<li>Inline Temp ： 内联临时方法</li>
+<li>Introduce Assertion ： 引入断言</li>
+<li>Introduce Explaining Variable ： 引入解释性变量</li>
+<li>Introduce Foreign Method ： 引入外加方法</li>
+<li>Introduce Local Extension ： 引入本地扩展类</li>
+<li>Introduce Null Object ： 引入null对象</li>
+<li>Introduce Parameter Object ： 引入参数对象</li>
+<li>Move Field ： 移动字段</li>
+<li>Move Method ： 移动方法</li>
+<li>Parameterize Method： 参数化方法</li>
+<li>Preserve Whole Object : 保持对象完整</li>
+<li>Pull Up Constructor Body ： 上移构造体主体</li>
+<li>Pull Up Field ： 上移字段</li>
+<li>Pull Up Method ： 上移方法</li>
+<li>Pulldown Field ： 下移字段</li>
+<li>Pulldown Method ：下移方法</li>
+<li>Remove Assignments to Parameters : 去除参数赋值</li>
+<li>Remove Control Flag : 去除控制标志</li>
+<li>Remove Middle Man ： 去除中间人</li>
+<li>Remove Parameter ： 去除参数</li>
+<li>Remove Setting Method ： 去除设置方法</li>
+<li>Rename Method ： 重命名函数</li>
+<li>Replace Array with Object ： 用对象代替数组</li>
+<li>Replace Conditional with Polymorphism ： 用多态代替条件语句</li>
+<li>Replace Constructor with Factory Method : 用工厂方法代替构造器</li>
+<li>Replace Data Value with Object : 用对象代替数据值</li>
+<li>Replace Delegation with Inheritance ： 用继承代替委托</li>
+<li>Replace Error Code with Exception ： 用异常代替错误码</li>
+<li>Replace Exception with Test ： 用测试代替异常</li>
+<li>Replace Inheritance with Delegation ： 用委托代替继承</li>
+<li>Replace Magic Number with Symbolic Constant :  用字面常量代替魔数</li>
+<li>Replace Method with Method Object : 用方法对象代替方法</li>
+<li>Repalce Nested Conditional with Guard Clauses : 用守卫语句代替嵌套条件语句</li>
+<li>Replace Parameter with Explicit Methods  : 用显示方法代替参数</li>
+<li>Replace Parameter with Method : 用方法代替参数</li>
+<li>Replace Record with Data Class : 用数据类代替记录</li>
+<li>Replace Subclass with Fields : 用字段代替子类</li>
+<li>Replace Temp with Query : 用查询方法代替临时变量</li>
+<li>Replace Type Code with Class : 用类代替类型码</li>
+<li>Replace Type Code with State/Strategy  : 用state/strategy 代替类型码</li>
+<li>Replace Type Code with Subclass : 用子类代替类型码</li>
+<li>Self Encapsulate Field : 自封装字段</li>
+<li>Separate Domain from Presentation : 将领域逻辑和表现分离</li>
+<li>Separate Query from Modifier : 将查询方法与修改方法分离</li>
+<li>Split Temporary Variable  :  分离临时变量</li>
+<li>Substitute Algorithm ： 替换算法</li>
+<li>Tease Apart Inheritance :  分解继承层次</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://FrankBian.github.io/2016/01/02/重新组织函数/" data-id="ciix7gptp0001kjuyzq2g0id3" class="article-share-link">Share</a>
+      <a data-url="http://FrankBian.github.io/2016/01/02/Refactoring List 名词介绍/" data-id="ciix7gpu40004kjuywxa4ypm6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-blogs" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/01/02/blogs/" class="article-date">
+  <time datetime="2016-01-02T14:49:21.000Z" itemprop="datePublished">2016-01-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/02/blogs/">Ranking Algorithm</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Some_Articals"><a href="#Some_Articals" class="headerlink" title="Some Articals"></a>Some Articals</h2><ul>
+<li>牛顿冷却定理 ： <a href="http://blog.jobbole.com/16327/" target="_blank" rel="external">http://blog.jobbole.com/16327/</a></li>
+<li>HackerNews排名算法 : <a href="http://blog.jobbole.com/15713/" target="_blank" rel="external">http://blog.jobbole.com/15713/</a></li>
+<li>StackOverFlow排名算法 ： <a href="http://blog.jobbole.com/16146/" target="_blank" rel="external">http://blog.jobbole.com/16146/</a></li>
+<li>Reddit排名算法 ： <a href="http://blog.jobbole.com/15727/" target="_blank" rel="external">http://blog.jobbole.com/15727/</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://FrankBian.github.io/2016/01/02/blogs/" data-id="ciix7gpu20003kjuyowsjcs09" class="article-share-link">Share</a>
       
       
     </footer>
@@ -211,12 +274,22 @@
     <article id="post-设计模式的六大原则" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/01/02/设计模式的六大原则/" class="article-date">
-  <time datetime="2016-01-02T14:28:12.000Z" itemprop="datePublished">2016-01-02</time>
+  <time datetime="2016-01-02T14:49:20.000Z" itemprop="datePublished">2016-01-02</time>
 </a>
     
   </div>
   <div class="article-inner">
     
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/02/设计模式的六大原则/">设计模式的几个原则</a>
+    </h1>
+  
+
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -317,128 +390,95 @@
 
 
   
-    <article id="post-Refactoring List 名词介绍" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-重新组织函数" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/01/02/Refactoring List 名词介绍/" class="article-date">
-  <time datetime="2016-01-02T14:27:55.000Z" itemprop="datePublished">2016-01-02</time>
+    <a href="/2016/01/02/重新组织函数/" class="article-date">
+  <time datetime="2016-01-02T14:49:13.000Z" itemprop="datePublished">2016-01-02</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/02/重新组织函数/">重新组织函数</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="u540D_u8BCD_u4ECB_u7ECD"><a href="#u540D_u8BCD_u4ECB_u7ECD" class="headerlink" title="名词介绍"></a>名词介绍</h1><ul>
-<li>Add Parameter : 添加参数</li>
-<li>Change Bidirectional Association to Unidirectional : 将双向关联改为单向</li>
-<li>Change Reference to Value : 将引用对象改为值对象</li>
-<li>Change Unidirectional Association to Bidirectional : 将单向关联改为双向</li>
-<li>Change Value to Reference : 将值对象改为引用对象</li>
-<li>Collapse Hierarchy : 合并继承层次</li>
-<li>Consolidate Conditional Expression : 合并条件语句</li>
-<li>Consolidate Duplicate Conditional Fragments : 合并重复的条件片段</li>
-<li>Convert Procedural Design to Objects :  将过程式设计转换为面向对象</li>
-<li>Decompose Conditional : 分解条件语句</li>
-<li>Duplicate Observe Data :  重复被观察数据</li>
-<li>Encapsulate Conllection :  封装集合</li>
-<li>Encapsulate Downcast ： 封装向下转型</li>
-<li>Encapsulate Field ： 封装字段</li>
-<li>Extract Class ： 提取类</li>
-<li>Extract Hierarchy ： 提取继承层次</li>
-<li>Extract Interface ： 提取接口</li>
-<li>Extract Method ： 提取方法</li>
-<li>Extract Subclass ： 提取子类</li>
-<li>Extract Superclass ： 提取超类</li>
-<li>Form Template Method ：形成模板方法</li>
-<li>Hide Delegate ： 隐藏委托类</li>
-<li>Hide Method ： 隐藏方法</li>
-<li>Inline Class ： 内联类</li>
-<li>Inline Temp ： 内联临时方法</li>
-<li>Introduce Assertion ： 引入断言</li>
-<li>Introduce Explaining Variable ： 引入解释性变量</li>
-<li>Introduce Foreign Method ： 引入外加方法</li>
-<li>Introduce Local Extension ： 引入本地扩展类</li>
-<li>Introduce Null Object ： 引入null对象</li>
-<li>Introduce Parameter Object ： 引入参数对象</li>
-<li>Move Field ： 移动字段</li>
-<li>Move Method ： 移动方法</li>
-<li>Parameterize Method： 参数化方法</li>
-<li>Preserve Whole Object : 保持对象完整</li>
-<li>Pull Up Constructor Body ： 上移构造体主体</li>
-<li>Pull Up Field ： 上移字段</li>
-<li>Pull Up Method ： 上移方法</li>
-<li>Pulldown Field ： 下移字段</li>
-<li>Pulldown Method ：下移方法</li>
-<li>Remove Assignments to Parameters : 去除参数赋值</li>
-<li>Remove Control Flag : 去除控制标志</li>
-<li>Remove Middle Man ： 去除中间人</li>
-<li>Remove Parameter ： 去除参数</li>
-<li>Remove Setting Method ： 去除设置方法</li>
-<li>Rename Method ： 重命名函数</li>
-<li>Replace Array with Object ： 用对象代替数组</li>
-<li>Replace Conditional with Polymorphism ： 用多态代替条件语句</li>
-<li>Replace Constructor with Factory Method : 用工厂方法代替构造器</li>
-<li>Replace Data Value with Object : 用对象代替数据值</li>
-<li>Replace Delegation with Inheritance ： 用继承代替委托</li>
-<li>Replace Error Code with Exception ： 用异常代替错误码</li>
-<li>Replace Exception with Test ： 用测试代替异常</li>
-<li>Replace Inheritance with Delegation ： 用委托代替继承</li>
-<li>Replace Magic Number with Symbolic Constant :  用字面常量代替魔数</li>
-<li>Replace Method with Method Object : 用方法对象代替方法</li>
-<li>Repalce Nested Conditional with Guard Clauses : 用守卫语句代替嵌套条件语句</li>
-<li>Replace Parameter with Explicit Methods  : 用显示方法代替参数</li>
-<li>Replace Parameter with Method : 用方法代替参数</li>
-<li>Replace Record with Data Class : 用数据类代替记录</li>
-<li>Replace Subclass with Fields : 用字段代替子类</li>
-<li>Replace Temp with Query : 用查询方法代替临时变量</li>
-<li>Replace Type Code with Class : 用类代替类型码</li>
-<li>Replace Type Code with State/Strategy  : 用state/strategy 代替类型码</li>
-<li>Replace Type Code with Subclass : 用子类代替类型码</li>
-<li>Self Encapsulate Field : 自封装字段</li>
-<li>Separate Domain from Presentation : 将领域逻辑和表现分离</li>
-<li>Separate Query from Modifier : 将查询方法与修改方法分离</li>
-<li>Split Temporary Variable  :  分离临时变量</li>
-<li>Substitute Algorithm ： 替换算法</li>
-<li>Tease Apart Inheritance :  分解继承层次</li>
+        <h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>重新组织函数是非常常用的一种方法，使之更恰当的包装代码<br><strong><em>小型函数的优美动人</em></strong></p>
+<h1 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h1><h4 id="1-Extract_Method_28_u63D0_u70BC_u51FD_u6570_29"><a href="#1-Extract_Method_28_u63D0_u70BC_u51FD_u6570_29" class="headerlink" title="1.Extract Method(提炼函数)"></a>1.Extract Method(提炼函数)</h4><ul>
+<li>尽量使函数体保持在30行以内，过长的函数需要重构</li>
+<li>如果函数都是小粒度的，那么其复用性会更好</li>
+<li>用函数名解释函数的用途</li>
+</ul>
+<h4 id="2-Inline_Method_28_u5185_u8054_u51FD_u6570_29"><a href="#2-Inline_Method_28_u5185_u8054_u51FD_u6570_29" class="headerlink" title="2.Inline Method(内联函数)"></a>2.Inline Method(内联函数)</h4><ul>
+<li>非必要的函数增加了函数调用的间接性，将其函数体内联到其调用处</li>
+<li>要对一堆存在调用关系的函数重构之前，先将被调函数内联到其调用处，然后对整个大函数进行重构  </li>
+</ul>
+<h4 id="3-Inline_Temp_28_u5185_u8054_u4E34_u65F6_u53D8_u91CF_29"><a href="#3-Inline_Temp_28_u5185_u8054_u4E34_u65F6_u53D8_u91CF_29" class="headerlink" title="3.Inline Temp(内联临时变量)"></a>3.Inline Temp(内联临时变量)</h4><ul>
+<li>如果这个临时变量妨碍了其他的重构手法，就将它内联</li>
+<li>一般可以通过声明该变量为final来检测该变量是否只被赋值一次</li>
+<li>找到临时变量的引用点，将它们替换成 为临时变量赋值 的表达式</li>
+<li>修改完之后，编译并测试</li>
+</ul>
+<h4 id="4-Replace_Temp_with_Query_28_u4EE5_u67E5_u8BE2_u53D6_u4EE3_u4E34_u65F6_u53D8_u91CF_29"><a href="#4-Replace_Temp_with_Query_28_u4EE5_u67E5_u8BE2_u53D6_u4EE3_u4E34_u65F6_u53D8_u91CF_29" class="headerlink" title="4.Replace Temp with Query(以查询取代临时变量)"></a>4.Replace Temp with Query(以查询取代临时变量)</h4><ul>
+<li>你的程序以一个临时变量保存某一表达式的运算结果， 则可以将这个表达式提炼到一个独立函数中，将这个临时变量的所有引用点替换成对新函数的调用。此后，新函数就可以其它函数使用</li>
+<li>因为临时变量只是暂时的，如果将临时变量替换成一个查询，那么同一个类中的所有函数都可以获得这份信息。这样做可以帮助你为这个类编写更加清晰的代码</li>
+<li>先将函数声明为private。日后如果发现有更多类需要使用它，那是放松对它的保护也很容易</li>
+<li>确保提炼出来的函数无任何副作用，也就是说该函数并不修改任务对象内容</li>
+</ul>
+<h4 id="5-Introduce_Explaining_Variable_28_u5F15_u5165_u89E3_u91CA_u6027_u53D8_u91CF_29"><a href="#5-Introduce_Explaining_Variable_28_u5F15_u5165_u89E3_u91CA_u6027_u53D8_u91CF_29" class="headerlink" title="5.Introduce Explaining Variable(引入解释性变量)"></a>5.Introduce Explaining Variable(引入解释性变量)</h4><ul>
+<li>你有一个复杂的表达式。将该复杂表达式（或其中一部分）的结果放进一个临时变量，以此变量名称来解释表达式用途</li>
+<li>在条件逻辑中，Introduce Explaining Variable特别有价值： 可以用这项重构将每个条件子句提炼出来，以一个良好命名的临时变量来解释对应条件子句的意义。</li>
+<li>在较长的算法中， 可以运用临时变量来解释每一步运算的意义</li>
+<li>更多情况下，尽量使用Extrat Method来解释一段代码的意义，临时变量只在它所处的函数中才有意义，局限性比较大</li>
+<li>通常情况下，Extract Method的工作量并不比Introduce Explaining Variable来得大</li>
+</ul>
+<h4 id="6-Split_Temporary_Variable_28_u5206_u89E3_u4E34_u65F6_u53D8_u91CF_29"><a href="#6-Split_Temporary_Variable_28_u5206_u89E3_u4E34_u65F6_u53D8_u91CF_29" class="headerlink" title="6.Split Temporary Variable(分解临时变量)"></a>6.Split Temporary Variable(分解临时变量)</h4><ul>
+<li>某个临时变量被复制多次，既不是循环变量，也不是用于手机计算结果，则可以针对每次赋值，创造一个独立、对应的临时变量</li>
+<li>如果临时变量承担多个责任，它就应该被替换（分解）为多个临时变量，每个变量只承担一个责任。</li>
+<li>同一个临时变量承担两件事情，会令代码阅读者糊涂</li>
+<li>使用final修饰符， 对后面的每一次赋值进行修改，每次修改后都应该编译测试</li>
+</ul>
+<h4 id="7-Remove_Assignments_to_Parameters_28_u79FB_u9664_u5BF9_u53C2_u6570_u7684_u8D4B_u503C_29"><a href="#7-Remove_Assignments_to_Parameters_28_u79FB_u9664_u5BF9_u53C2_u6570_u7684_u8D4B_u503C_29" class="headerlink" title="7.Remove Assignments to Parameters(移除对参数的赋值)"></a>7.Remove Assignments to Parameters(移除对参数的赋值)</h4><ul>
+<li>如果代码中有对参数进行的赋值，以一个临时变量取代该参数的位置</li>
+<li>在函数体内，只用参数表示“被传递进来的东西”，会使代码清晰得多，因为这种用法在所有语言中都表现出相同的语义</li>
+<li>可以在较长的函数中，使用final来修饰参数，可以帮助你检查参数是否被修改</li>
+</ul>
+<h4 id="8-Replace_Method_with_Method_Obejct_28_u4EE5_u51FD_u6570_u5BF9_u8C61_u53D6_u4EE3_u51FD_u6570_29"><a href="#8-Replace_Method_with_Method_Obejct_28_u4EE5_u51FD_u6570_u5BF9_u8C61_u53D6_u4EE3_u51FD_u6570_29" class="headerlink" title="8.Replace Method with Method Obejct(以函数对象取代函数)"></a>8.Replace Method with Method Obejct(以函数对象取代函数)</h4><ul>
+<li>如果存在一个大型函数，其中对局部变量的使用使你无法采用Extract Method</li>
+<li>将这个函数放进一个单独对象中，如此一来局部变量就成了对象内的字段。然后可以在同一个对象中将这个大型函数分解为多个小型函数</li>
+<li>只要将相对独立的代码从大型函数中提取出来，就可以大大提高代码的可读性</li>
+<li>太多的局部变量会对函数提取造成很大的困难，这时候使用 Method Object 会有很好的效果，辅以Replace Temp with Query</li>
+<li>建立一个新类，根据待处理函数的用途，为这个类命名</li>
+<li>在新类中建立一个final字段，用以保存原先大型函数所在的对象–源对象。同时针对原函数中的每个临时变量和每个参数，在新类中建立一个对象的字段保存之</li>
+<li>在新类中建立一个构造函数，接受源对象以及原函数的所有参数作为参数</li>
+<li>在新类中建立一个compute()函数</li>
+<li>将原函数的代码复制到compute函数中。如果需要使用源对象的任何函数，请通过源对象字段调用</li>
+<li>编译。</li>
+<li>将旧函数的函数本体替换成这样一条语句 ： “创建上述新类的一个对象，而后通过调用其中的compute（） 函数”</li>
+<li>最后可以对新类中的大型函数进行拆解，因为临时变量全部变成了字段，不必传递任何参数</li>
+</ul>
+<h4 id="9-Substitute_Algorithm_28_u66FF_u6362_u7B97_u6CD5_29"><a href="#9-Substitute_Algorithm_28_u66FF_u6362_u7B97_u6CD5_29" class="headerlink" title="9.Substitute Algorithm(替换算法)"></a>9.Substitute Algorithm(替换算法)</h4><ul>
+<li>你需要将某个算法替换成更清晰的算法</li>
+<li>将函数本体替换为另一个算法</li>
+<li>准备好另一个（替换用）算法，让他通过编译</li>
+<li>针对现有的测试，执行上述新算法。如果结果与原本结果相同，重构结束</li>
+<li>如果现有测试结果不同于原先，在测试和调试过程中，以旧算法为比较参照标准</li>
+<li>对于每个测试用例，分别以新旧两种算法执行，并观察两者结果是否相同，这可以帮助你看到哪一个测试用例出现麻烦，以及出现了什么样的麻烦</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://FrankBian.github.io/2016/01/02/Refactoring List 名词介绍/" data-id="ciix7gpu40004kjuywxa4ypm6" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-blogs" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/01/02/blogs/" class="article-date">
-  <time datetime="2016-01-02T14:26:50.000Z" itemprop="datePublished">2016-01-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Some_Articals"><a href="#Some_Articals" class="headerlink" title="Some Articals"></a>Some Articals</h2><ul>
-<li>牛顿冷却定理 ： <a href="http://blog.jobbole.com/16327/" target="_blank" rel="external">http://blog.jobbole.com/16327/</a></li>
-<li>HackerNews排名算法 : <a href="http://blog.jobbole.com/15713/" target="_blank" rel="external">http://blog.jobbole.com/15713/</a></li>
-<li>StackOverFlow排名算法 ： <a href="http://blog.jobbole.com/16146/" target="_blank" rel="external">http://blog.jobbole.com/16146/</a></li>
-<li>Reddit排名算法 ： <a href="http://blog.jobbole.com/15727/" target="_blank" rel="external">http://blog.jobbole.com/15727/</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://FrankBian.github.io/2016/01/02/blogs/" data-id="ciix7gpu20003kjuyowsjcs09" class="article-share-link">Share</a>
+      <a data-url="http://FrankBian.github.io/2016/01/02/重新组织函数/" data-id="ciix7gptp0001kjuyzq2g0id3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -551,15 +591,7 @@ Exposing a system&apos;s resources through a RESTful API is a flexible way to pr
       <ul>
         
           <li>
-            <a href="/2016/01/02/Code Smell/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2016/01/02/重新组织函数/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2016/01/02/设计模式的六大原则/">(no title)</a>
+            <a href="/2016/01/02/Code Smell/">Code Smell</a>
           </li>
         
           <li>
@@ -567,7 +599,15 @@ Exposing a system&apos;s resources through a RESTful API is a flexible way to pr
           </li>
         
           <li>
-            <a href="/2016/01/02/blogs/">(no title)</a>
+            <a href="/2016/01/02/blogs/">Ranking Algorithm</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/02/设计模式的六大原则/">设计模式的几个原则</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/02/重新组织函数/">重新组织函数</a>
           </li>
         
       </ul>
