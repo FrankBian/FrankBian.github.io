@@ -1,4 +1,4 @@
-title: RESTful Web Services : The basics
+title: The Basics of RESTful Web Services
 ---
 
 Representational State Transfer(REST)  
