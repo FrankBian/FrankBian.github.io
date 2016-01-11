@@ -65,6 +65,72 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-3rd-part-JAR-management-by-MAVEN" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/01/11/3rd-part-JAR-management-by-MAVEN/" class="article-date">
+  <time datetime="2016-01-11T07:09:25.000Z" itemprop="datePublished">2016-01-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="title_3A_u4F7F_u7528_Maven__u7BA1_u7406_u7B2C_u4E09_u65B9_u7684_JAR__u5305"><a href="#title_3A_u4F7F_u7528_Maven__u7BA1_u7406_u7B2C_u4E09_u65B9_u7684_JAR__u5305" class="headerlink" title="title:使用 Maven 管理第三方的 JAR 包"></a>title:使用 Maven 管理第三方的 JAR 包</h2><h2 id="u60C5_u666F_u63CF_u8FF0"><a href="#u60C5_u666F_u63CF_u8FF0" class="headerlink" title="情景描述"></a>情景描述</h2><p>基于 maven 管理的项目中，引用了第三方直接打包好的 jar，此时应该如何管理这些 jar 包。</p>
+<h2 id="u89E3_u51B3_u529E_u6CD5"><a href="#u89E3_u51B3_u529E_u6CD5" class="headerlink" title="解决办法"></a>解决办法</h2><p>参考代码：<a href="https://github.com/FrankBian/Java-Utils-Collection" target="_blank" rel="external">com-gansuer-algorithm</a></p>
+<ul>
+<li>在 webapp 目录下新加一个目录 lib(专门用来存放项目中用到的第三方 jar 文件)</li>
+<li>在该 module 的 pom.xml 中声明这个 dependency ：</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--此处的groupId 和 artifactId 根据自己喜好随便起--&gt;</span>	</span><br><span class="line"><span class="tag">&lt;<span class="title">dependencies</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">dependency</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">groupId</span>&gt;</span>com.mylib<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>com-mylib-stdlib<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">version</span>&gt;</span>1.0.0<span class="tag">&lt;/<span class="title">version</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>导入 maven-install 插件，将上面的第三方jar 安装到本地仓库 ：</li>
+</ul>
+<pre><code>&lt;build&gt;
+    &lt;plugins&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+            &lt;artifactId&gt;maven-install-plugin&lt;/artifactId&gt;
+            &lt;version&gt;2.5.2&lt;/version&gt;
+            &lt;executions&gt;
+                &lt;execution&gt;
+                    &lt;id&gt;install-external&lt;/id&gt;
+                    &lt;phase&gt;clean&lt;/phase&gt;
+                    &lt;configuration&gt;
+                        &lt;file&gt;${basedir}/src/main/webapp/lib/stdlib.jar&lt;/file&gt;
+                        &lt;repositoryLayout&gt;default&lt;/repositoryLayout&gt;
+                        &lt;groupId&gt;com.mylib&lt;/groupId&gt;
+                        &lt;artifactId&gt;com-mylib-stdlib&lt;/artifactId&gt;
+                        &lt;version&gt;1.0.0&lt;/version&gt;
+                        &lt;packaging&gt;jar&lt;/packaging&gt;
+                        &lt;generatePom&gt;true&lt;/generatePom&gt;
+                    &lt;/configuration&gt;
+                    &lt;goals&gt;
+                        &lt;goal&gt;install-file&lt;/goal&gt;
+                    &lt;/goals&gt;
+                &lt;/execution&gt;
+            &lt;/executions&gt;
+        &lt;/plugin&gt;
+    &lt;/plugins&gt;
+&lt;/build&gt;
+</code></pre><ul>
+<li>配置完成之后，运行 <code>maven clean</code>，第三方jar 包即被安装到本地仓库</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://FrankBian.github.io/2016/01/11/3rd-part-JAR-management-by-MAVEN/" data-id="cij9mqbyd0000m7uy5fgt244p" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-RESTful Basics" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/01/02/RESTful Basics/" class="article-date">
@@ -599,7 +665,7 @@ Exposing a system&apos;s resources through a RESTful API is a flexible way to pr
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">6</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">7</span></li></ul>
     </div>
   </div>
 
@@ -609,6 +675,10 @@ Exposing a system&apos;s resources through a RESTful API is a flexible way to pr
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/01/11/3rd-part-JAR-management-by-MAVEN/">(no title)</a>
+          </li>
         
           <li>
             <a href="/2016/01/02/RESTful Basics/">The Basics of RESTful Web Services</a>
@@ -624,10 +694,6 @@ Exposing a system&apos;s resources through a RESTful API is a flexible way to pr
         
           <li>
             <a href="/2016/01/02/blogs/">Ranking Algorithm</a>
-          </li>
-        
-          <li>
-            <a href="/2016/01/02/设计模式的六大原则/">设计模式的几个原则</a>
           </li>
         
       </ul>
