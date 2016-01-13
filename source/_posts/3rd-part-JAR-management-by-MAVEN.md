@@ -3,7 +3,8 @@ title: 使用Maven管理第三方的JAR包
 
 ## 情景描述
 
-基于 maven 管理的项目中，引用了第三方直接打包好的 jar，此时应该如何管理这些 jar 包。
+基于 maven 管理的项目中，引用了第三方直接打包好的 jar，此时应该如何管理这些 jar 包。  
+参考问题及相关答案 ：[Go to stackoverflow](http://stackoverflow.com/a/31023523/4134671)
 
 ## 解决办法
 
